@@ -34,16 +34,17 @@ follows: Mount lv-apps on /mnt/apps - To be used by webservers
       
       
       
-4. Install NFS server, configure it to start on reboot and make sure it is u
-and running
-sudo yum -y update
-sudo yum install nfs-utils -y
-36% COMPLETE
- Previous Lesson Mark Complete 
-sudo systemctl start nfs-server.service
-sudo systemctl enable nfs-server.service
-sudo systemctl status nfs-server.service
-5. Export the mounts for webservers' subnet cidr to connect as clients. For
+4. Install NFS server, configure it to start on reboot and make sure it is up and running:
+
+
+
+            sudo yum -y update
+            sudo yum install nfs-utils -y
+            sudo systemctl start nfs-server.service
+            sudo systemctl enable nfs-server.service
+            sudo systemctl status nfs-server.service
+   
+6. Export the mounts for webservers' subnet cidr to connect as clients. For
 simplicity, you will install your all three Web Servers inside the same
 subnet, but in production set up you would probably want to separate
 each tier inside its own subnet for higher level of security. To check
@@ -66,7 +67,7 @@ sudo vi /etc/exports
 /mnt/opt <Subnet-CIDR>(rw,sync,no_all_squash,no_root_squash)
 Esc + :wq!
 sudo exportfs -arv
-6. Check which port is used by NFS and open it using Security Groups
+7. Check which port is used by NFS and open it using Security Groups
 (add new Inbound Rule)
 rpcinfo -p | grep nfs
 Important note: In order for NFS server to be accessible from your client,
