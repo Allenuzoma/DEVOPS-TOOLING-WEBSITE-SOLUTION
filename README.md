@@ -22,6 +22,10 @@ Mount lv-logs on /mnt/logs - To be used by webserver logs Mount lv￾opt on /mnt
       sudo mkdir -p /mnt/logs
       sudo mkdir -p /mnt/opt
 
+
+Now we will mount the lvs on the mount points created above:
+
+
       #Mount the lvs on the mount points
       sudo mount /dev/nfsdata-vg/apps-lv /mnt/apps
       sudo mount /dev/nfsdata-vg/logs-lv /mnt/logs
