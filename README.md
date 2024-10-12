@@ -17,19 +17,19 @@ follows: Mount lv-apps on /mnt/apps - To be used by webservers
 
 
 
-      #Create mount points
-      sudo mkdir -p /mnt/apps
-      sudo mkdir -p /mnt/logs
-      sudo mkdir -p /mnt/opt
+            #Create mount points
+            sudo mkdir -p /mnt/apps
+            sudo mkdir -p /mnt/logs
+            sudo mkdir -p /mnt/opt
 
 
 6. Now we will mount the lvs on the mount points created above:
 
 
-      #Mount the lvs on the mount points
-      sudo mount /dev/nfsdata-vg/apps-lv /mnt/apps
-      sudo mount /dev/nfsdata-vg/logs-lv /mnt/logs
-      sudo mount /dev/nfsdata-vg/opt-lv /mnt/opt
+            #Mount the lvs on the mount points
+            sudo mount /dev/nfsdata-vg/apps-lv /mnt/apps
+            sudo mount /dev/nfsdata-vg/logs-lv /mnt/logs
+            sudo mount /dev/nfsdata-vg/opt-lv /mnt/opt
 
       
       
