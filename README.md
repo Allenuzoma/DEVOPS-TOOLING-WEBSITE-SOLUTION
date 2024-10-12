@@ -13,7 +13,7 @@ Create mount points on /mnt directory for the logical volumes as
 follows: Mount lv-apps on /mnt/apps - To be used by webservers
 
 
-Mount lv-logs on /mnt/logs - To be used by webserver logs Mount lv￾opt on /mnt/opt - To be used by Jenkins server in Project 8
+5. Mount lv-logs on /mnt/logs - To be used by webserver logs Mount lv￾opt on /mnt/opt - To be     used by Jenkins server in Project 8
 
 
 
@@ -23,7 +23,7 @@ Mount lv-logs on /mnt/logs - To be used by webserver logs Mount lv￾opt on /mnt
       sudo mkdir -p /mnt/opt
 
 
-Now we will mount the lvs on the mount points created above:
+6. Now we will mount the lvs on the mount points created above:
 
 
       #Mount the lvs on the mount points
