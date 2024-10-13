@@ -401,18 +401,22 @@ Configure the Web Servers to work with a single MySQL database
 
   
 3. Install NFS client
+
+   
         sudo yum update -y
         sudo yum install nfs-utils nfs4-acl-tools -y
 
 
-4. Mount /var/www/ and target the NFS server's export for apps
+5. Mount /var/www/ and target the NFS server's export for apps
+
+   
         sudo mkdir /var/www
         sudo mount -t nfs -o rw,nosuid <NFS-Server-Private-IP-Address>:/mnt/apps
         /var/www
 
 
    
-6. Verify that NFS was mounted successfully by running df -h.
+7. Verify that NFS was mounted successfully by running df -h.
 
   ![mounting of NFS server to www var - ie where apache stores file](https://github.com/user-attachments/assets/c948c7e7-d2eb-4e00-9639-6896b2165c32)
 
@@ -451,38 +455,58 @@ Configure the Web Servers to work with a single MySQL database
    
         sudo systemctl enable php-fpm
    
-        setsebool -P httpd_execmem 1
+        sudo setsebool -P httpd_execmem 1
 
 
 
    
 Repeat steps 1-5 for another 2 Web Servers.
+
+
+
 11. Verify that Apache files and directories are available on the Web
-Server in /var/www and also on the NFS server in /mnt/apps. If you see the
-same files - it means NFS is mounted correctly. You can try to create a
+Server in /var/www and also on the NFS server in /mnt/apps.
+If you see the same files - it means NFS is mounted correctly. You can try to create a
 new file touch test.txt from one server and check if the same file is
 accessible from other Web Servers.
-12. Locate the log folder for Apache on the Web Server and mount it to
+
+Creating test file on webserver 2
+
+![creating test file on web server 2](https://github.com/user-attachments/assets/fe4c6e56-6b11-4292-b9c6-58bf5979d901)
+
+
+Confirming presence of test file on webserver 3
+
+![confirming presence of test file on server 3](https://github.com/user-attachments/assets/f8e149af-6bef-46fa-87e6-2be4c11b8232)
+
+
+Confirming presence of test file on NFS server
+
+![confirming presence of test file on nfs server](https://github.com/user-attachments/assets/a12da80c-77ac-40d3-8a79-fac30ed10c1e)
+
+
+
+13. Locate the log folder for Apache on the Web Server and mount it to
 NFS server's export for logs. Repeat step №4 to make sure the mount
 point will persist after reboot.
-13. Fork the tooling source code from StegHub Github Account to your
+14. Fork the tooling source code from StegHub Github Account to your
 Github account. (Learn how to fork a repo here)
-14. Deploy the tooling website's code to the Webserver. Ensure that
+15. Deploy the tooling website's code to the Webserver. Ensure that
 the html folder from the repository is deployed to /var/www/html
 Note 1: Do not forget to open TCP port 80 on the Web Server.
 Note 2: If you encounter 403 Error - check permissions to
 your /var/www/html folder and also disable SELinux sudo setenforce 0 To make
 this change permanent - open following config file sudo vi
 /etc/sysconfig/selinux and set SELINUX=disabled, then restrt httpd.
-15. Update the website's configuration to connect to the database
+16. Update the website's configuration to connect to the database
 (in /var/www/html/functions.php file). Apply tooling-db.sql script to your
 database using this command mysql -h <databse-private-ip> -u <dbusername> -p <db-pasword> < tooling-db.sql
-16. Create in MySQL a new admin user with username: myuser and
+17. Create in MySQL a new admin user with username: myuser and
 password: password:
 INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status')
 VALUES -> (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99',
 'user@mail.com', 'admin', '1');
-17. Open the website in your browser http://<Web-Server-Public-IP-Address-orPublic-DNS-Name>/index.php and make sure you can login into the websute
+18. Open the website in your browser http://<Web-Server-Public-IP-Address-orPublic-DNS-Name>/index.php and make sure you can login into the websute
 with myuser user.
 Congratulations!
 You have just implemented a web solution for a DevOps team using LAMP
