@@ -275,3 +275,106 @@ you must also open following ports: TCP 111, UDP 111, UDP 20491
 ![editing inbound rules](https://github.com/user-attachments/assets/2d2842b8-06f9-4025-8fa4-1e5326b7b82e)
 
 
+**Step 2: Configure the Database Server**
+
+Launch a new EC2 Redhat EL instance which will serve as the database server. 
+
+Enter into the server using a terminal.
+
+
+
+
+Enter the command below to update and install mysql-server:
+
+
+        sudo yum update
+        sudo yum install mysql-server
+
+Verify that the service is up and running by using 
+
+        sudo systemctl status mysqld:
+
+
+![systemctl status mysqld](https://github.com/user-attachments/assets/f9ef0465-f11e-4801-800f-bd2c0e210dc8)
+
+We will restart the service and enable it so it will be running even after reboot:
+
+
+      sudo systemctl restart mysqld
+      sudo systemctl enable mysqld
+
+![systemctl restart and enable mysqld](https://github.com/user-attachments/assets/0e1aeb1f-5eb2-4a9f-bf99-19b05ae3725c)
+
+
+
+Configure remote access by editing the mysql configuration file with is found at /etc/my.cnf in Mysql installed on Amazon linux 2023. This is equivalent to the 
+
+        sudo nano /etc/my.cnf
+
+![bind-address](https://github.com/user-attachments/assets/df8c284a-df14-4dae-aeb7-f196fcef6794)
+
+
+Create a secure user:
+
+
+       ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password123@';
+
+
+ Exit the console
+
+ Ensure secure installation by typing the command:
+       sudo mysql_secure_installation
+
+ Create password validation.
+
+ Select yes to ALL
+
+
+ Sign in again with password:
+
+
+     sudo mysql -p
+
+Create a database called 'tooling' in the console;
+
+     CREATE DATABASE tooling;
+
+![login w password and creating db](https://github.com/user-attachments/assets/e80ea20d-6e8e-4fce-8025-d23596e33a5b)
+
+
+Check to see the database created:
+
+     SHOW DATABASES;
+
+![show databases](https://github.com/user-attachments/assets/b6576e0a-565f-4e00-a510-c1d1b01f2987)
+
+     
+Exit the console;
+
+
+Create new remote user using the command:
+
+
+     CREATE USER 'webaccess'@'%' IDENTIFIED WITH mysql_native_password BY  
+     'Password123$';
+     
+     #Allow the remote user access on any item with 'tooling' 
+     GRANT ALL PRIVILEGES ON tooling.* TO 'webaccess'@'%' WITH GRANT OPTION;
+
+     #Remove existing privileges
+     FLUSH PRIVILEGES;
+
+  ![create and granting permisiion to remote client mysql](https://github.com/user-attachments/assets/a30fffca-4b1c-48ee-bed8-8b087a0579ae)
+
+
+
+     
+     Create exit
+     
+
+
+     
+
+ 
+
+       
