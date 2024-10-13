@@ -584,18 +584,55 @@ Set SELINUX=disabled, then restart httpd.
 18. Update the website's configuration to connect to the database
 (in /var/www/html/functions.php file).
 
-![functions php](https://github.com/user-attachments/assets/e0355be5-32d4-4995-b6a6-b5a012bb8f37)
 
+
+![functions php with db priv ip](https://github.com/user-attachments/assets/8fa18a93-ab84-4525-9a5f-6919d9caaee9)
 
 
 19. Apply tooling-db.sql script to your database using this command mysql -h <databse-private-ip> -u <dbusername> -p <db-pasword> < tooling-db.sql
-20. Create in MySQL a new admin user with username: myuser and
-password: password:
-INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status')
-VALUES -> (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99',
-'user@mail.com', 'admin', '1');
-21. Open the website in your browser http://<Web-Server-Public-IP-Address-orPublic-DNS-Name>/index.php and make sure you can login into the websute
+Open the mysql port 3306 on the database server before this.
+
+
+![moving tooling-sql to the db](https://github.com/user-attachments/assets/793c0394-8a32-487e-b395-d8fac7115037)
+
+
+21. Create in MySQL database server a new admin user with username: myuser and
+password: Password123$
+
+![creating myuser on db server](https://github.com/user-attachments/assets/2cb287f4-5130-412c-ad2d-bdd640dd53ae)
+
+![grant privileges](https://github.com/user-attachments/assets/ab07c3b2-6ca9-4481-a4c8-7ea2f4d542d2)
+
+22. From Webserver 1, log into the Mysql Server and the database 'tooling':
+
+
+           mysql -h [database-private-ip] -u [db-username] -p [db-name]
+   
+   
+   Login to the db server remotely
+
+           mysql -h 172.31.24.252 -u myuser -p tooling
+
+
+
+    ![login db server from webserver](https://github.com/user-attachments/assets/d88557f7-d158-42ab-ad8e-19d2913c46ad)
+
+    
+From the console, enter this command to create a new table 'users':
+
+
+        INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status') VALUES (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
+
+        
+24. Open the website in your browser http://<Web-Server-Public-IP-Address-orPublic-DNS-Name>/index.php and make sure you can login into the websute
 with myuser user.
+
+![steghub tooling login](https://github.com/user-attachments/assets/454abd39-1e84-402d-9f03-a3064abd5c17)
+
+
+![admin page](https://github.com/user-attachments/assets/b147a2d9-cae3-4226-b270-7eda2ad57d77)
+
+
 Congratulations!
 You have just implemented a web solution for a DevOps team using LAMP
 stack with remote Database and NFS servers.
