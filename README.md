@@ -490,24 +490,111 @@ Confirming presence of test file on NFS server
 13. Locate the log folder for Apache on the Web Server and mount it to
 NFS server's export for logs. Repeat step №4 to make sure the mount
 point will persist after reboot.
-14. Fork the tooling source code from StegHub Github Account to your
-Github account. (Learn how to fork a repo here)
-15. Deploy the tooling website's code to the Webserver. Ensure that
+
+We need to mount the Apache log folder to the NFS server. Typically, Apache logs are stored in /var/log/httpd Before we mount, it is important to backup the log files to prevent the loss of log files.
+
+Create the folder for the backup files and use the rsync utility to copy the content into it as follows:
+
+         sudo mkdir -p /var/backups/httpd_logs
+         sudo rsync -av /var/log/httpd/ /var/backups/httpd_logs/
+
+
+
+Then mount the NFS share:
+
+         sudo mount -t nfs -o rw,nosuid [NFS-Server-Private-IP-Address]:/mnt/logs 
+
+         
+Also make sure the mount point persist after reboot by editing the /etc/fstab.
+
+And add this line to /etc/fstab:
+
+        [NFS-Server-Private-IP]:/mnt/logs /var/log/httpd nfs defaults 0 0
+
+
+![fstab for mount logs](https://github.com/user-attachments/assets/38bfa5c7-e604-48d0-a82b-b57f4f62d1b0)
+
+
+
+        
+Restore the backed-up log files to the mounted directory using rsync:
+
+        sudo rsync -av /var/backups/httpd_logs/ /var/log/httpd/
+
+        
+15. Fork the tooling source code from StegHub Github Account to your
+Github account:
+
+         git clone https://github.com/Allenuzoma/tooling.git
+         sudo cp -R tooling/html/. /var/www
+
+
+![step 5 tooling](https://github.com/user-attachments/assets/7b7ab56e-fe39-4e61-966c-d8f6059b3313)
+
+
+
+
+   ![web server 1 showing html file](https://github.com/user-attachments/assets/7a3bff66-9503-48d1-a48a-1b620b63ae86)
+
+
+We can see that the html file is replicated in our web server 2
+
+
+ ![web server 2 showing html file](https://github.com/user-attachments/assets/957ee2aa-e7fd-4331-9c0d-850426c228b0)
+
+It is replicated in our NFS file server as well
+![nfs server showing html file](https://github.com/user-attachments/assets/a73bb651-ff05-4b83-b9d9-eaa3adbec5d0)
+
+
+16. Deploy the tooling website's code to the Webserver. Ensure that
 the html folder from the repository is deployed to /var/www/html
+
 Note 1: Do not forget to open TCP port 80 on the Web Server.
+
+
+Restart Apache:
+
+         sudo systemctl restart httpd
+
+![sudo systemctl restart httpd](https://github.com/user-attachments/assets/c4296230-4896-4b48-b449-c85ddf4c6e17)
+
+![selinux enforcing](https://github.com/user-attachments/assets/1c25d063-1f47-485a-873f-fdbef83e431f)
+
+
 Note 2: If you encounter 403 Error - check permissions to
-your /var/www/html folder and also disable SELinux sudo setenforce 0 To make
-this change permanent - open following config file sudo vi
-/etc/sysconfig/selinux and set SELINUX=disabled, then restrt httpd.
-16. Update the website's configuration to connect to the database
-(in /var/www/html/functions.php file). Apply tooling-db.sql script to your
-database using this command mysql -h <databse-private-ip> -u <dbusername> -p <db-pasword> < tooling-db.sql
-17. Create in MySQL a new admin user with username: myuser and
+your /var/www/html folder and also disable SELinux using the command:
+
+         sudo setenforce 0 
+         
+         
+To make this change permanent - open following config file 
+
+
+        sudo nano /etc/sysconfig/selinux 
+
+
+Set SELINUX=disabled, then restart httpd.
+
+![selinux disabled](https://github.com/user-attachments/assets/f250c982-109f-433b-bebe-7938c3261f87)
+
+
+![systemcl status httpd](https://github.com/user-attachments/assets/7bcd2a1a-35f7-4be6-9b0a-7ec9d6c949d9)
+
+
+18. Update the website's configuration to connect to the database
+(in /var/www/html/functions.php file).
+
+![functions php](https://github.com/user-attachments/assets/e0355be5-32d4-4995-b6a6-b5a012bb8f37)
+
+
+
+Apply tooling-db.sql script to your database using this command mysql -h <databse-private-ip> -u <dbusername> -p <db-pasword> < tooling-db.sql
+20. Create in MySQL a new admin user with username: myuser and
 password: password:
 INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status')
 VALUES -> (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99',
 'user@mail.com', 'admin', '1');
-18. Open the website in your browser http://<Web-Server-Public-IP-Address-orPublic-DNS-Name>/index.php and make sure you can login into the websute
+21. Open the website in your browser http://<Web-Server-Public-IP-Address-orPublic-DNS-Name>/index.php and make sure you can login into the websute
 with myuser user.
 Congratulations!
 You have just implemented a web solution for a DevOps team using LAMP
