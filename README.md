@@ -427,7 +427,7 @@ Configure the Web Servers to work with a single MySQL database
          sudo vi /etc/fstab
 
          
-   add following line
+  Add following line
 
 
          <NFS-Server-Private-IP-Address>:/mnt/apps /var/www nfs defaults 0 0
@@ -457,6 +457,7 @@ Configure the Web Servers to work with a single MySQL database
    
         sudo setsebool -P httpd_execmem 1
 
+![installing apache remi etc](https://github.com/user-attachments/assets/eb93c05f-b849-4cbd-8cfb-f197d865b4d8)
 
 
    
