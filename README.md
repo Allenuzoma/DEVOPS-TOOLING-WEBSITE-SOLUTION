@@ -588,7 +588,7 @@ Set SELINUX=disabled, then restart httpd.
 
 
 
-Apply tooling-db.sql script to your database using this command mysql -h <databse-private-ip> -u <dbusername> -p <db-pasword> < tooling-db.sql
+19. Apply tooling-db.sql script to your database using this command mysql -h <databse-private-ip> -u <dbusername> -p <db-pasword> < tooling-db.sql
 20. Create in MySQL a new admin user with username: myuser and
 password: password:
 INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status')
