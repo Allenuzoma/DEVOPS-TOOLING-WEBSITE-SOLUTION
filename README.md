@@ -624,7 +624,7 @@ From the console, enter this command to create a new table 'users':
         INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status') VALUES (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
 
         
-24. Open the website in your browser http://<Web-Server-Public-IP-Address-orPublic-DNS-Name>/index.php and make sure you can login into the websute
+24. Open the website in your browser http://<Web-Server-Public-IP-Address-or Public-DNS-Name>/index.php and make sure you can login into the websute
 with myuser user.
 
 ![steghub tooling login](https://github.com/user-attachments/assets/454abd39-1e84-402d-9f03-a3064abd5c17)
@@ -633,9 +633,8 @@ with myuser user.
 ![admin page](https://github.com/user-attachments/assets/b147a2d9-cae3-4226-b270-7eda2ad57d77)
 
 
-Congratulations!
-You have just implemented a web solution for a DevOps team using LAMP
-stack with remote Database and NFS servers.
+We can see that the website is accessible from webserver 1. This also happens when we use the other webservers 2 and 3.
+We are able to login and access the same database and NFS contents as webserver 1.
 
  
 
