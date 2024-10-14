@@ -606,16 +606,26 @@ password: Password123$
 22. From Webserver 1, log into the Mysql Server and the database 'tooling':
 
 
+
+
            mysql -h [database-private-ip] -u [db-username] -p [db-name]
+
+
+
    
    
    Login to the db server remotely
+
+
+
+
+
 
            mysql -h 172.31.24.252 -u myuser -p tooling
 
 
 
-    ![login db server from webserver](https://github.com/user-attachments/assets/d88557f7-d158-42ab-ad8e-19d2913c46ad)
+   ![login db server from webserver](https://github.com/user-attachments/assets/d88557f7-d158-42ab-ad8e-19d2913c46ad)
 
     
 From the console, enter this command to create a new table 'users':
