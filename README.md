@@ -434,8 +434,14 @@ Configure the Web Servers to work with a single MySQL database
 
 ![fstab for nfs private ip add](https://github.com/user-attachments/assets/fc981c28-71ed-45e2-bda9-b7f7c257387f)
 
-         
-9. Install Remi's repository, Apache and PHP
+After editing the /etc/fstab, we will mount and reload:
+
+        sudo mount -a
+        sudo systemctl daemon-reload
+
+       
+8. Install Remi's repository, Apache and PHP
+
 
 
 
