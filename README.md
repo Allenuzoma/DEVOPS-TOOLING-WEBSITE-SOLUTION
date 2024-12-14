@@ -34,7 +34,9 @@ Next we connect our instance using the terminal
 
 
 
-     sudo gdisk /dev/xvdf
+      sudo gdisk /dev/xvdf
+
+   
 
 When asked for a command, type P for printing partition table, n for creating a new partion and W to write. Enter Yes to all and proceed with the process.
 
@@ -53,7 +55,8 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 10. Use lsblk to confirm new partition on each disk:
 
    
-       lsblk
+        lsblk
+
 
 11. Now we can see the newly created partitions for all the disks
 
@@ -65,7 +68,8 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 12. Install the lvm2 package:
 
 
-       sudo yum install lvm2
+
+    sudo yum install lvm2
 
 
 
@@ -75,7 +79,10 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 
-       sudo lvmdiskscan
+
+    sudo lvmdiskscan
+    
+    
 
 ![sudo lvmdiskscan](https://github.com/user-attachments/assets/88071f4b-aced-450c-aede-1926799896ef)
 
@@ -118,8 +125,19 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 18. Use lvcreate utility to create 3 logical volumes. apps-lv, logs-lv and opt-lv
+
+
+
+      lvcreate -n apps-lv -L 9G nfsdata-vg
+
+      lvcreate -n logs-lv -L 9G nfsdata-vg
+
+      lvcreate -n opt-lv -L 9G nfsdata-vg
+
+
     
-19.NOTE: apps-lv will be used to store data for the Website while, logs-lv will be
+    
+19. NOTE: apps-lv will be used to store data for the Website while, logs-lv will be
     used to store data for logs.
 
 ![sudo lvcreate lvs](https://github.com/user-attachments/assets/87acd2f6-9037-43d0-af4c-9620cf063b44)
