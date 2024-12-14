@@ -69,7 +69,7 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 
-      sudo yum install lvm2
+        sudo yum install lvm2
 
 
 
@@ -80,7 +80,7 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 
-       sudo lvmdiskscan
+         sudo lvmdiskscan
     
     
 
@@ -132,7 +132,7 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
     
           sudo lvcreate -n logs-lv -L 9G nfsdata-vg
     
-          audo lvcreate -n opt-lv -L 9G nfsdata-vg
+          sudo lvcreate -n opt-lv -L 9G nfsdata-vg
 
 
     
