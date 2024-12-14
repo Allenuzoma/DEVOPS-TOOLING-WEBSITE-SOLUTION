@@ -2,7 +2,7 @@
 
 **Step 1: Creating the NFS Server**
 1. 1. Create an EC2 instance with the Redhat OS.
-2. Name the instance Web-Server
+2. Name the instance NFS-Server
 
 Create three EBS volumes of 10 Gib each and attach these volumes to the ec2 instance.
 
@@ -15,14 +15,14 @@ Next we connect our instance using the terminal
  We can see the block device currently connected using the command:
 
 
-    lsblk
+     lsblk
 
 6. To see all the mounts and free spaces available on the server:
    
     
     
     
-    df -h
+     df -h
 
 
    ![mounts and free spaces on the server](https://github.com/user-attachments/assets/b0903239-1bd5-4fbe-8aed-d1a1290315c1) 
@@ -34,7 +34,7 @@ Next we connect our instance using the terminal
 
 
 
-    sudo gdisk /dev/xvdf
+     sudo gdisk /dev/xvdf
 
 When asked for a command, type P for printing partition table, n for creating a new partion and W to write. Enter Yes to all and proceed with the process.
 
