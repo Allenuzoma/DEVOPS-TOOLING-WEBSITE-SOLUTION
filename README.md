@@ -128,11 +128,11 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 
-          lvcreate -n apps-lv -L 9G nfsdata-vg
+          sudo lvcreate -n apps-lv -L 9G nfsdata-vg
     
-          lvcreate -n logs-lv -L 9G nfsdata-vg
+          sudo lvcreate -n logs-lv -L 9G nfsdata-vg
     
-          lvcreate -n opt-lv -L 9G nfsdata-vg
+          audo lvcreate -n opt-lv -L 9G nfsdata-vg
 
 
     
