@@ -15,14 +15,14 @@ Next we connect our instance using the terminal
  We can see the block device currently connected using the command:
 
 
-     lsblk
+       lsblk
 
 6. To see all the mounts and free spaces available on the server:
    
     
     
     
-     df -h
+       df -h
 
 
    ![mounts and free spaces on the server](https://github.com/user-attachments/assets/b0903239-1bd5-4fbe-8aed-d1a1290315c1) 
@@ -34,7 +34,7 @@ Next we connect our instance using the terminal
 
 
 
-      sudo gdisk /dev/xvdf
+    sudo gdisk /dev/xvdf
 
    
 
@@ -69,7 +69,7 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 
-    sudo yum install lvm2
+      sudo yum install lvm2
 
 
 
@@ -80,7 +80,7 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 
-    sudo lvmdiskscan
+       sudo lvmdiskscan
     
     
 
@@ -128,11 +128,11 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 
-      lvcreate -n apps-lv -L 9G nfsdata-vg
-
-      lvcreate -n logs-lv -L 9G nfsdata-vg
-
-      lvcreate -n opt-lv -L 9G nfsdata-vg
+          lvcreate -n apps-lv -L 9G nfsdata-vg
+    
+          lvcreate -n logs-lv -L 9G nfsdata-vg
+    
+          lvcreate -n opt-lv -L 9G nfsdata-vg
 
 
     
