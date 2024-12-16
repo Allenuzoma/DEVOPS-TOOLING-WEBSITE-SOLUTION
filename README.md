@@ -351,6 +351,15 @@ Configure remote access by editing the mysql configuration file with is found at
 ![bind-address](https://github.com/user-attachments/assets/df8c284a-df14-4dae-aeb7-f196fcef6794)
 
 
+
+Enter the mysql console:
+
+
+
+       sudo mysql
+
+       
+
 Create a secure user:
 
 
