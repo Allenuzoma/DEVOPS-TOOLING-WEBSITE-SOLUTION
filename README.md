@@ -152,22 +152,24 @@ We repeat the process for disks /dev/xvdg and /def/xvdh
 
 
 20. Instead of formatting the disks as ext4 you will have to format them
-as xfs
+as xfs:
 
 
 
-   sudo mkfs -t xfs /dev/nfsdata-vg/apps-lv
-   sudo mkfs -t xfs /dev/nfsdata-vg/logs-lv
-   sudo mkfs -t xfs /dev/nfsdata-vg/opt-lv
+
+
+               sudo mkfs -t xfs /dev/nfsdata-vg/apps-lv
+               sudo mkfs -t xfs /dev/nfsdata-vg/logs-lv
+               sudo mkfs -t xfs /dev/nfsdata-vg/opt-lv
+
+    
    
 
 ![formatting disks as xfs](https://github.com/user-attachments/assets/df027540-a232-4f2b-9743-0ec68230093a)
 
 21. Create mount points on /mnt directory for the logical volumes as
-follows: Mount lv-apps on /mnt/apps - To be used by webservers
-
-
-5. Mount lv-logs on /mnt/logs - To be used by webserver logs Mount lv￾opt on /mnt/opt - To be used by Jenkins server in Project 8
+    follows: Mount lv-apps on /mnt/apps - To be used by webservers
+Mount lv-logs on /mnt/logs - To be used by webserver logs Mount lv-opt on /mnt/opt - To be used by Jenkins server in Project 8
 
 
 
