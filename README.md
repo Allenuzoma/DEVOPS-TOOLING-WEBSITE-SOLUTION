@@ -329,7 +329,7 @@ Enter the command below to update and install mysql-server:
 
 Verify that the service is up and running by using 
 
-        sudo systemctl status mysqld:
+        sudo systemctl status mysqld
 
 
 ![systemctl status mysqld](https://github.com/user-attachments/assets/f9ef0465-f11e-4801-800f-bd2c0e210dc8)
