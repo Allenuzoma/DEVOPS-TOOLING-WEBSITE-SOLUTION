@@ -751,7 +751,7 @@ password: Password123$
 From the console, enter this command to create a new table 'users':
 
 
-        INSERT INTO `users` (`id`, `username`, `password`, `email`, `user_type`, `status`) VALUES (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
+        INSERT INTO `users` (`username`, `password`, `email`, `user_type`, `status`) VALUES ('myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
 
         
 24. Open the website in your browser http://<Web-Server-Public-IP-Address-or Public-DNS-Name>/index.php and make sure you can login into the websute
