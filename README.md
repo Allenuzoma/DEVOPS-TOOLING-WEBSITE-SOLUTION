@@ -566,16 +566,21 @@ point will persist after reboot.
 
 We need to mount the Apache log folder to the NFS server. Typically, Apache logs are stored in /var/log/httpd Before we mount, it is important to backup the log files to prevent the loss of log files.
 
-Create the folder for the backup files and use the rsync utility to copy the content into it as follows:
+On the Web Servers, create the folder for the backup files and use the rsync utility to copy the content into it as follows:
 
+         #create new folder for backup
          sudo mkdir -p /var/backups/httpd_logs
+         
+         #copy from apache default log folder to new folder
          sudo rsync -av /var/log/httpd/ /var/backups/httpd_logs/
 
 
 
 Then mount the NFS share:
 
+
          sudo mount -t nfs -o rw,nosuid [NFS-Server-Private-IP-Address]:/mnt/logs 
+
 
          
 Also make sure the mount point persist after reboot by editing the /etc/fstab.
