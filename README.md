@@ -581,6 +581,8 @@ Then mount the NFS share:
 
          sudo mount -t nfs -o rw,nosuid [NFS-Server-Private-IP-Address]:/mnt/logs /var/log/httpd
 
+         sudo mount -t nfs -o rw,nosuid 172.31.35.233:/mnt/logs /var/log/httpd
+
 
          
 Also make sure the mount point persist after reboot by editing the /etc/fstab.
