@@ -605,8 +605,10 @@ Restore the backed-up log files to the mounted directory using rsync:
 15. Fork the tooling source code from StegHub Github Account to your
 Github account:
 
+
+
          git clone https://github.com/Allenuzoma/tooling.git
-         sudo cp -R tooling/html/. /var/www
+         sudo cp -R tooling/html/. /var/www/html/
 
 
 ![step 5 tooling](https://github.com/user-attachments/assets/7b7ab56e-fe39-4e61-966c-d8f6059b3313)
