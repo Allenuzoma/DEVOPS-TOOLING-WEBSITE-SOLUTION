@@ -426,7 +426,17 @@ Create new remote user using the command:
      Create exit
      
 
+To check the available users:
 
+  SELECT user FROM mysql.user;
+
+
+To delete or remove a remote user, use the syntax
+
+  
+  DROP USER '[user]'@'[host]'
+
+  DROP USER 'webaccess'@'%';
 
 
 
