@@ -368,8 +368,14 @@ Create a secure user:
 
  Exit the console
 
+     exit
+
  Ensure secure installation by typing the command:
-       sudo mysql_secure_installation
+
+
+ 
+    sudo mysql_secure_installation
+    
 
  Create password validation.
 
