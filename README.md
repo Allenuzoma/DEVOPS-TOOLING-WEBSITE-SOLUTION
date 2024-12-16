@@ -711,11 +711,11 @@ password: Password123$
 
 
 
-       CREATE USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'Password123$';
-     
-       GRANT ALL PRIVILEGES ON tooling.* TO 'myuser'@'%' WITH GRANT OPTION;
-          
-       FLUSH PRIVILEGES;
+        CREATE USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'Password123$';
+      
+        GRANT ALL PRIVILEGES ON tooling.* TO 'myuser'@'%' WITH GRANT OPTION;
+           
+        FLUSH PRIVILEGES;
 
 
     
@@ -753,6 +753,14 @@ From the console, enter this command to create a new table 'users':
 
         INSERT INTO `users` (`username`, `password`, `email`, `user_type`, `status`) VALUES ('myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
 
+
+
+Exit the mysql console and enter the command:
+
+
+       sudo systemctl restart httpd
+
+     
         
 24. Open the website in your browser http://<Web-Server-Public-IP-Address-or Public-DNS-Name>/index.php and make sure you can login into the websute
 with myuser user.
