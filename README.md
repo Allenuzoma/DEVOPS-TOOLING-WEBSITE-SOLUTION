@@ -683,8 +683,12 @@ Set SELINUX=disabled, then restart httpd.
 ![functions php with db priv ip](https://github.com/user-attachments/assets/8fa18a93-ab84-4525-9a5f-6919d9caaee9)
 
 
-19. Apply tooling-db.sql script to your database using this command mysql -h <databse-private-ip> -u <dbusername> -p <db-pasword> < tooling-db.sql
+19. Apply tooling-db.sql script to your database using this command mysql -h <databse-private-ip> -u <db_username> -p <db-password> < tooling-db.sql
 Open the mysql port 3306 on the database server before this.
+
+
+
+      mysql -h 172.31.24.252 -u webaccess -p tooling < tooling-db.sql    
 
 
 ![moving tooling-sql to the db](https://github.com/user-attachments/assets/793c0394-8a32-487e-b395-d8fac7115037)
