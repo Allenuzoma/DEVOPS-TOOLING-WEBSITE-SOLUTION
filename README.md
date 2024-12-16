@@ -428,15 +428,18 @@ Create new remote user using the command:
 
 To check the available users:
 
-  SELECT user FROM mysql.user;
+
+
+   SELECT user FROM mysql.user;
+
 
 
 To delete or remove a remote user, use the syntax
 
   
-  DROP USER '[user]'@'[host]'
+   #DROP USER '[user]'@'[host]'; eg:
 
-  DROP USER 'webaccess'@'%';
+    DROP USER 'webaccess'@'%';
 
 
 
