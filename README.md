@@ -666,6 +666,18 @@ Set SELINUX=disabled, then restart httpd.
 18. Update the website's configuration to connect to the database
 (in /var/www/html/functions.php file).
 
+  On the Webserver CLI enter the command:
+
+
+     sudo nano /var/www/html/functions.php
+
+
+  Edit the configuration to connect the database using the syntax
+
+     # $db = mysqli_connect('<database_server_private_ip>', '<remote_user>', '<password>', '<tooling>');
+
+     $db = mysqli_connect('172.31.24.252', 'webaccess', 'Password123$', 'tooling');
+
 
 
 ![functions php with db priv ip](https://github.com/user-attachments/assets/8fa18a93-ab84-4525-9a5f-6919d9caaee9)
