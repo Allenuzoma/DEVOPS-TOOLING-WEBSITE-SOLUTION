@@ -207,6 +207,18 @@ Enter the command below to view the UUID:
 ![fstab edit](https://github.com/user-attachments/assets/a1718c12-32bb-4f79-b5c5-d9f927039a49)
 
 
+
+Test the configuration and reload the daemon
+
+
+
+
+
+         sudo mount -a
+         sudo systemctl daemon-reload
+
+         
+
 4. Install NFS server, configure it to start on reboot and make sure it is up and running:
 
 
