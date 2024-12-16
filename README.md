@@ -406,15 +406,13 @@ Exit the console;
 
 Create new remote user using the command:
 
-
-     CREATE USER 'webaccess'@'%' IDENTIFIED WITH mysql_native_password BY  
-     'Password123$';
+  CREATE USER 'webaccess'@'%' IDENTIFIED WITH mysql_native_password BY 'Password123$';
      
-     #Allow the remote user access on any item with 'tooling' 
-     GRANT ALL PRIVILEGES ON tooling.* TO 'webaccess'@'%' WITH GRANT OPTION;
+  #Allow the remote user access on any item with 'tooling' 
+  GRANT ALL PRIVILEGES ON tooling.* TO 'webaccess'@'%' WITH GRANT OPTION;
 
-     #Remove existing privileges
-     FLUSH PRIVILEGES;
+  #Remove existing privileges
+  FLUSH PRIVILEGES;
 
   ![create and granting permisiion to remote client mysql](https://github.com/user-attachments/assets/a30fffca-4b1c-48ee-bed8-8b087a0579ae)
 
