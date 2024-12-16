@@ -691,9 +691,6 @@ Set SELINUX=disabled, then restart httpd.
         #mysql -h <database-private-ip> -u <db_remote_username> -p tooling < 
           tooling-db.sql
     
-    
-    
-    
           mysql -h 172.31.24.252 -u webaccess -p tooling < tooling-db.sql
 
 
@@ -714,11 +711,11 @@ password: Password123$
 
 
 
-     CREATE USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'Password123$';
+       CREATE USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'Password123$';
      
-     GRANT ALL PRIVILEGES ON tooling.* TO 'myuser'@'%' WITH GRANT OPTION;
+       GRANT ALL PRIVILEGES ON tooling.* TO 'myuser'@'%' WITH GRANT OPTION;
           
-     FLUSH PRIVILEGES;
+       FLUSH PRIVILEGES;
 
 
     
@@ -726,7 +723,7 @@ password: Password123$
 
 ![grant privileges](https://github.com/user-attachments/assets/ab07c3b2-6ca9-4481-a4c8-7ea2f4d542d2)
 
-22. From Webserver 1, log into the Mysql Server and the database 'tooling':
+22. From Webserver 1, log into the Mysql Server and the database 'tooling' using the newly created remote user, myuser
 
 
 
@@ -754,7 +751,7 @@ password: Password123$
 From the console, enter this command to create a new table 'users':
 
 
-        INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status') VALUES (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
+        INSERT INTO `users` (`id`, `username`, `password`, `email`, `user_type`, `status`) VALUES (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
 
         
 24. Open the website in your browser http://<Web-Server-Public-IP-Address-or Public-DNS-Name>/index.php and make sure you can login into the websute
