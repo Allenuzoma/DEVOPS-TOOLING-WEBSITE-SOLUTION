@@ -430,7 +430,7 @@ To check the available users:
 
 
 
-   SELECT user FROM mysql.user;
+    SELECT user FROM mysql.user;
 
 
 
