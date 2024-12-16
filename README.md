@@ -762,7 +762,7 @@ Exit the mysql console and enter the command:
 
      
         
-24. Open the website in your browser http://<WebserverPublicIp or DNS>/index.php and make sure you can login into the website
+24. Open the website in your browser http://WebserverPublicIp or DNS/index.php and make sure you can login into the website
 with myuser user and the password entered into the table.
 
 ![steghub tooling login](https://github.com/user-attachments/assets/454abd39-1e84-402d-9f03-a3064abd5c17)
