@@ -711,6 +711,17 @@ Set SELINUX=disabled, then restart httpd.
 21. Create in MySQL database server a new admin user with username: myuser and
 password: Password123$
 
+
+
+
+     CREATE USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'Password123$';
+     
+     GRANT ALL PRIVILEGES ON tooling.* TO 'myuser'@'%' WITH GRANT OPTION;
+          
+     FLUSH PRIVILEGES;
+
+
+    
 ![creating myuser on db server](https://github.com/user-attachments/assets/2cb287f4-5130-412c-ad2d-bdd640dd53ae)
 
 ![grant privileges](https://github.com/user-attachments/assets/ab07c3b2-6ca9-4481-a4c8-7ea2f4d542d2)
