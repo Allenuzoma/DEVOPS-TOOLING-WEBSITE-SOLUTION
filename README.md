@@ -579,7 +579,7 @@ On the Web Servers, create the folder for the backup files and use the rsync uti
 Then mount the NFS share:
 
 
-         sudo mount -t nfs -o rw,nosuid [NFS-Server-Private-IP-Address]:/mnt/logs 
+         sudo mount -t nfs -o rw,nosuid [NFS-Server-Private-IP-Address]:/mnt/logs /var/log/httpd
 
 
          
