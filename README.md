@@ -4,7 +4,7 @@
 1. 1. Create an EC2 instance with the Redhat OS.
 2. Name the instance NFS-Server.
 
-Create three EBS volumes of 10 Gib each and attach these volumes to the ec2 instance.
+Create three EBS volumes of 10 Gib each and attach these volumes to the ec2 instance..
 
 
 Next we connect our instance using the terminal
