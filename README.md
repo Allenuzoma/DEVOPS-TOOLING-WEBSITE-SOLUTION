@@ -7,7 +7,7 @@
 Create three EBS volumes of 10 Gib each and attach these volumes to the ec2 instance..
 
 
-Next we connect our instance using the terminal
+Next we connect our instance using the terminal.
 
 ![lsblk list block](https://github.com/user-attachments/assets/a7492248-9885-4888-b7c2-59899119cd16)
 
