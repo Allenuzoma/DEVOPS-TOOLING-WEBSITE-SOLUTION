@@ -1,7 +1,7 @@
 # DEVOPS-TOOLING-WEBSITE-SOLUTION
 
 **Step 1: Creating the NFS Server**
-1. 1. Create an EC2 instance with the Redhat OS.ll
+1. 1. Create an EC2 instance with the Redhat OS.
 2. Name the instance NFS-Server.
 
 Create three EBS volumes of 10 Gib each and attach these volumes to the ec2 instance..
