@@ -317,6 +317,8 @@ you must also open following ports: TCP 111, UDP 111, UDP 20491
 
 Launch a new EC2 Redhat EL instance which will serve as the database server. 
 
+Add an incoming rule for MySQL/Aurora on port 3306 for the subnet IPV4 CIDR which is 172.31.0.0/16
+
 Enter into the server using a terminal.
 
 
