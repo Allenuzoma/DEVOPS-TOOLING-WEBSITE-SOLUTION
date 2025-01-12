@@ -776,6 +776,19 @@ Exit the mysql console and enter the command:
 
        sudo systemctl restart httpd
 
+
+
+ You may have to identify and terminate other processes using port 80 & 443 using the command:
+
+      
+      #Identify the services
+      sudo lsof -i :80
+      sudo lsof -i :443
+
+      #Kill the services eg. nginx
+      sudo systemctl stop nginx
+
+
      
         
 24. Open the website in your browser http://WebserverPublicIp or DNS/index.php and make sure you can login into the website
