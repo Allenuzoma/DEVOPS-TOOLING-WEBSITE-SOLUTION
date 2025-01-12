@@ -465,6 +465,10 @@ During the next steps we will do following:
 
 - Configure NFS client (this step must be done on all three servers)
 - Deploy a Tooling application to our Web Servers into a shared NFS folder
+
+
+
+
   
 Configure the Web Servers to work with a single MySQL database
 1. Launch a new EC2 instance with RHEL 8 Operating System to serve as the webserver
@@ -494,7 +498,7 @@ Configure the Web Servers to work with a single MySQL database
    Make sure that the changes will persist on Web Server after reboot:
 
    
-         sudo vi /etc/fstab
+         sudo nano /etc/fstab
 
          
   Add following line
@@ -614,7 +618,9 @@ Github account:
          sudo cp -R tooling/html/. /var/www/html/
 
 
+
 ![step 5 tooling](https://github.com/user-attachments/assets/7b7ab56e-fe39-4e61-966c-d8f6059b3313)
+
 
 
 
@@ -625,9 +631,16 @@ Github account:
 We can see that the html file is replicated in our web server 2
 
 
+
+
  ![web server 2 showing html file](https://github.com/user-attachments/assets/957ee2aa-e7fd-4331-9c0d-850426c228b0)
 
+
+
+
 It is replicated in our NFS file server as well
+
+
 ![nfs server showing html file](https://github.com/user-attachments/assets/a73bb651-ff05-4b83-b9d9-eaa3adbec5d0)
 
 
@@ -688,7 +701,7 @@ Set SELINUX=disabled, then restart httpd.
 
 20. Open the mysql port 3306 on the database server
  
-21. On your Webserver, apply tooling-db.sql script to your database using this command.
+21. On your Webserver, Enter the tooling directory and apply tooling-db.sql script to your database using this command. 
 
 
         #mysql -h <database-private-ip> -u <db_remote_username> -p tooling < 
