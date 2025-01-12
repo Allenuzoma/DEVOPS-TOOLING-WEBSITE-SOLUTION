@@ -788,6 +788,9 @@ Exit the mysql console and enter the command:
       #Kill the services eg. nginx
       sudo systemctl stop nginx
 
+      #Restart httpd service
+      sudo systemctl restart httpd
+
 
      
         
